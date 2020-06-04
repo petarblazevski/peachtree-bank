@@ -6,13 +6,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import * as fromContainers from './containers';
+import * as fromComponents from './components';
 import { environment } from '../environments/environment';
 
 import { TransactionEffects } from './store/transaction.effects';
 import { reducers } from './store';
 
 @NgModule({
-  declarations: [...fromContainers.containers],
+  declarations: [...fromContainers.containers, ...fromComponents.components],
   imports: [
     BrowserModule,
     HttpClientModule,
