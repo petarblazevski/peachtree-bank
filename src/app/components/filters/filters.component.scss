@@ -1,0 +1,21 @@
+:host {
+  //display: flex;
+  //justify-content: space-between;
+}
+
+.sorting-actions {
+  text-align: right;
+  .sort-by {
+    font-size: 0.875rem;
+    margin-right: 15px;
+  }
+
+  .btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 0;
+
+    color: var(--text-color);
+    border-color: var(--light-grey);
+  }
+}

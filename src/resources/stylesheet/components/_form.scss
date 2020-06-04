@@ -1,0 +1,23 @@
+
+.form-control {
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--light-grey);
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: var(--light-grey);
+  }
+
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: var(--light-grey);
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: var(--light-grey);
+  }
+}
