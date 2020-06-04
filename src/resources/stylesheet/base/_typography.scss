@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass typography configuration.
+// -----------------------------------------------------------------------------
+
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: var(--text-color);
+  font: normal 100% / 1.4 var(--text-font-stack);
+}
+

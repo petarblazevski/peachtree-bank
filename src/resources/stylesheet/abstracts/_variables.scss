@@ -1,0 +1,17 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+:root {
+  /// Copy text color
+  --text-color: rgb(34, 34, 34);
+
+  /// Main brand color
+  --brand-color: rgb(255, 103, 19);
+
+  /// Secondary color
+  --secondary-color: rgb(0, 133, 154);
+
+  /// Regular font family
+  --text-font-stack: 'Kanit', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}

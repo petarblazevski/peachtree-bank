@@ -8,7 +8,8 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "skipTests": true
+          "skipTests": true,
+          "skipImport": true
         },
         "@schematics/angular:class": {
           "skipTests": true
@@ -42,7 +43,7 @@
               "src/mock"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/resources/stylesheet/styles.scss"
             ],
             "scripts": []
           },

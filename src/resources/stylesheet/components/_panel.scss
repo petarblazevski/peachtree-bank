@@ -1,0 +1,17 @@
+.panel {
+  background-color: var(--white);
+
+  &-heading {
+
+    padding: 8px 10px;
+
+    text-align: center;
+
+    color: var(--white);
+    background-color: var(--secondary-color);
+  }
+
+  &-body {
+    padding: 20px 15px;
+  }
+}
