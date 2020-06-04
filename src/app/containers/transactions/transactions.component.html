@@ -4,6 +4,6 @@
   </div>
   <div class="panel-body">
     <app-filters></app-filters>
-    <app-transaction-list></app-transaction-list>
+    <app-transaction-list [transactions]="transactions$ | async"></app-transaction-list>
   </div>
 </div>

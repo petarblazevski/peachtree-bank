@@ -1,0 +1,46 @@
+.transaction-list {
+  padding: 0 15px;
+}
+.transaction-list-item {
+  height: 80px;
+
+  border: 1px solid var(--mid-grey);
+  border-bottom: 0;
+  border-left-width: 10px;
+
+  &:last-child {
+    border-bottom: 1px solid var(--mid-grey);
+  }
+}
+
+.transaction-date,
+.transaction-merchant-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transaction-date {
+  color: var(--mid-grey)
+}
+
+.transaction-merchant-logo img {
+  width: 50px;
+}
+
+.transaction-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-amount {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+

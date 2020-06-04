@@ -1,1 +1,15 @@
-<p>transaction-list works!</p>
+<div class="transaction-list">
+  <div class="transaction-list-item row" *ngFor="let transaction of transactions" [ngStyle]="{ borderLeftColor: transaction.categoryCode }">
+    <div class="col-2 transaction-date d-flex align-items-center justify-content-center">{{ transaction.transactionDate | date:'MMM d' }}</div>
+    <div class="col-2 transaction-merchant-logo d-flex align-items-center justify-content-center">
+      <img class="img-fluid " [src]="transaction.merchantLogo" [alt]="transaction.merchant">
+    </div>
+    <div class="col transaction-details">
+      <div class="transaction-info">
+        <span class="h5">{{ transaction.merchant }}</span>
+        <span>{{ transaction.transactionType }}</span>
+      </div>
+      <div class="transaction-amount">-{{ transaction.amount | currency }}</div>
+    </div>
+  </div>
+</div>
