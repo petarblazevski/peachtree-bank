@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -17,6 +18,7 @@ import { reducers } from './store';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers, {
       metaReducers: [],
       runtimeChecks: {

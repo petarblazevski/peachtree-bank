@@ -21,3 +21,22 @@
     color: var(--light-grey);
   }
 }
+
+.btn-primary{
+  background-color: var(--brand-color);
+  border-color: var(--brand-color);
+}
+
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background-color: var(--brand-color);
+  border-color: var(--brand-color);
+  opacity: 0.5;
+}
+
+.form-label {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
