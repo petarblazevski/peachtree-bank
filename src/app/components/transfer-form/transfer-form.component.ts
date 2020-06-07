@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -12,6 +12,7 @@ import {
   styleUrls: ['./transfer-form.component.scss'],
 })
 export class TransferFormComponent implements OnInit {
+  @Input() merchants: string[];
   form: FormGroup;
   balance = 5824.76;
 

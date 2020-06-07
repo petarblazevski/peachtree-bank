@@ -8,3 +8,8 @@ export const selectTransactions = createSelector(
   selectTransactionFeature,
   (state: TransactionState) => state.transactions
 );
+
+export const selectMerchants = createSelector(
+  selectTransactionFeature,
+  (state: TransactionState) => state.merchants
+);

@@ -6,11 +6,13 @@ import * as transactionActions from './transaction.actions';
 export interface IState {
   loading: boolean;
   transactions: Transaction[];
+  merchants: string[];
 }
 
 export const initialState: IState = {
   loading: true,
   transactions: null,
+  merchants: null,
 };
 
 const transactionReducer = createReducer(
@@ -19,6 +21,9 @@ const transactionReducer = createReducer(
     ...state,
     loading: false,
     transactions,
+    merchants: [
+      ...new Set(transactions.map((transaction) => transaction.merchant)),
+    ],
   }))
 );
 

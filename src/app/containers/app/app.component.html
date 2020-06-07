@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-3">
-        <app-transfer-form></app-transfer-form>
+        <app-transfer-form [merchants]="merchants$ | async"></app-transfer-form>
       </div>
       <div class="col-9">
         <app-transactions></app-transactions>

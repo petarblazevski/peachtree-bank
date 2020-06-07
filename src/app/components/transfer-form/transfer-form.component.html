@@ -15,7 +15,7 @@
 
         <select id="toAccount" class="form-control" (change)="changeToAccount($event)" formControlName="toAccount" >
           <option value="" disabled>Georgia Power Electricity Company</option>
-          <option>...</option>
+          <option *ngFor="let merchant of merchants" [value]="merchant">{{ merchant }}</option>
         </select>
       </div>
 
