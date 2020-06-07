@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ToastrModule } from 'ngx-toastr';
 
 import * as fromContainers from './containers';
 import * as fromComponents from './components';
@@ -12,6 +13,7 @@ import { environment } from '../environments/environment';
 
 import { TransactionEffects } from './store/transaction.effects';
 import { reducers } from './store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [...fromContainers.containers, ...fromComponents.components],
@@ -31,6 +33,8 @@ import { reducers } from './store';
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([TransactionEffects]),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [fromContainers.AppComponent],

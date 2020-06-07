@@ -1,0 +1,11 @@
+select {
+  //color: var(--light-grey);
+}
+
+option:not(:first-of-type) {
+  color: black;
+}
+
+option:first-of-type {
+  display: none;
+}

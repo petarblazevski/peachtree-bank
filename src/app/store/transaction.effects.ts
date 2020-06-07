@@ -6,10 +6,23 @@ import {
   ROOT_EFFECTS_INIT,
 } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, exhaustMap, map } from 'rxjs/operators';
+import {
+  catchError,
+  concatMap,
+  exhaustMap,
+  map,
+  tap,
+  withLatestFrom,
+} from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import { ToastrService } from 'ngx-toastr';
 
 import { ApiService } from '../services/api.service';
-import { loadFailure, loadTransactions } from './transaction.actions';
+import * as transactionActions from './transaction.actions';
+import { IState } from './index';
+import { selectBalance } from './transaction.selectors';
+
+const LIMIT = -500;
 
 @Injectable()
 export class TransactionEffects {
@@ -18,12 +31,46 @@ export class TransactionEffects {
       ofType(ROOT_EFFECTS_INIT),
       exhaustMap(() =>
         this.service.getAllTransactions().pipe(
-          map((payload) => loadTransactions({ transactions: payload.data })),
-          catchError((error) => of(loadFailure({ error })))
+          map((payload) =>
+            transactionActions.loadTransactions({ transactions: payload.data })
+          ),
+          catchError((error) => of(transactionActions.loadFailure({ error })))
         )
       )
     )
   );
 
-  constructor(private actions$: Actions, private service: ApiService) {}
+  requestNewTransaction$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(transactionActions.requestNewTransaction),
+      concatMap((action) =>
+        of(action).pipe(withLatestFrom(this.store.pipe(select(selectBalance))))
+      ),
+      map(([payload, balance]) => {
+        if (balance - payload.amount < LIMIT) {
+          return transactionActions.failedTransaction({
+            reason: `You are exceeding the allowed amount of "$ ${LIMIT}"`,
+          });
+        } else {
+          return transactionActions.createTransaction(payload);
+        }
+      })
+    )
+  );
+
+  failedTransaction$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(transactionActions.failedTransaction),
+        tap((payload) => this.toastr.error(payload.reason))
+      ),
+    { dispatch: false }
+  );
+
+  constructor(
+    private actions$: Actions,
+    private service: ApiService,
+    private store: Store<IState>,
+    private toastr: ToastrService
+  ) {}
 }

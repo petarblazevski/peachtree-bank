@@ -3,7 +3,7 @@
     <span>Make a Transfer</span>
   </div>
   <div class="panel-body">
-    <form [formGroup]="form" novalidate>
+    <form [formGroup]="form" novalidate (keydown.enter)="onSubmit($event)" (ngSubmit)="onSubmit($event)">
       <div class="form-group">
         <label for="fromAccount" class="form-label">From Account</label>
         <input type="text" class="form-control" id="fromAccount" formControlName="fromAccount">
@@ -11,21 +11,22 @@
 
       <div class="form-group">
         <label for="toAccount" class="form-label">To Account</label>
-<!--        <input type="text" class="form-control" id="toAccount" formControlName="toAccount" placeholder="Georgia Power Electricity Company">-->
-
         <select id="toAccount" class="form-control" (change)="changeToAccount($event)" formControlName="toAccount" >
-          <option value="" disabled>Georgia Power Electricity Company</option>
+          <option value="" disabled>Select an account ...</option>
           <option *ngFor="let merchant of merchants" [value]="merchant">{{ merchant }}</option>
         </select>
       </div>
 
       <div class="form-group">
         <label for="amount" class="form-label">From Account</label>
-        <input type="text" class="form-control" id="amount" formControlName="amount" placeholder="0.00">
+        <input type="text" class="form-control" [ngClass]="{ 'is-invalid': amount.errors && amount.dirty}" id="amount" formControlName="amount" placeholder="0.00">
+        <div class="invalid-feedback" *ngIf="amount.errors && amount.dirty">
+          Please provide a correct amount
+        </div>
       </div>
 
       <div class="text-right">
-        <button class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
       </div>
 
     </form>
