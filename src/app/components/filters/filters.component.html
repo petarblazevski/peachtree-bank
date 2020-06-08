@@ -12,9 +12,21 @@
   <div class="sorting-actions col-6">
     <span class="sort-by">Sort by</span>
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn">Date</button>
-      <button type="button" class="btn">Beneficiary</button>
-      <button type="button" class="btn">Amount</button>
+      <button type="button" class="btn" (click)="sortBy('transactionDate')">
+        Date
+        <app-arrow-icon class="arrow" [direction]="'up'" *ngIf="showArrow('transactionDate', 'asc')" ></app-arrow-icon>
+        <app-arrow-icon class="arrow" [direction]="'down'" *ngIf="showArrow('transactionDate', 'desc')" ></app-arrow-icon>
+      </button>
+      <button type="button" class="btn" (click)="sortBy('merchant')">
+        Beneficiary
+        <app-arrow-icon class="arrow" [direction]="'up'" *ngIf="showArrow('merchant', 'asc')" ></app-arrow-icon>
+        <app-arrow-icon class="arrow" [direction]="'down'" *ngIf="showArrow('merchant', 'desc')" ></app-arrow-icon>
+      </button>
+      <button type="button" class="btn" (click)="sortBy('amount')">
+        Amount
+        <app-arrow-icon class="arrow" [direction]="'up'" *ngIf="showArrow('amount', 'asc')" ></app-arrow-icon>
+        <app-arrow-icon class="arrow" [direction]="'down'" *ngIf="showArrow('amount', 'desc')" ></app-arrow-icon>
+      </button>
     </div>
   </div>
 </div>
