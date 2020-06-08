@@ -1,6 +1,13 @@
 <div class="row">
   <div class="search-field col-6">
-    <input type="text" class="form-control" placeholder="Search by typing">
+    <form [formGroup]="form" novalidate>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search by typing" formControlName="query">
+        <button type="button" class="close" (click)="clearQuery()" *ngIf="query.value">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </form>
   </div>
   <div class="sorting-actions col-6">
     <span class="sort-by">Sort by</span>

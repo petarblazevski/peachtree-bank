@@ -1,5 +1,5 @@
 <div class="transaction-list">
-  <div class="transaction-list-item row" *ngFor="let transaction of transactions" [ngStyle]="{ borderLeftColor: transaction.categoryCode }">
+  <div class="transaction-list-item row" *ngFor="let transaction of filteredTransactions" [ngStyle]="{ borderLeftColor: transaction.categoryCode }">
     <div class="col-2 transaction-date">{{ transaction.transactionDate | date:'MMM d' }}</div>
     <div class="col-2 transaction-merchant-logo">
       <img class="img-fluid " [src]="transaction.merchantLogo" [alt]="transaction.merchant">

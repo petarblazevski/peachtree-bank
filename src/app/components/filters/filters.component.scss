@@ -3,6 +3,16 @@
   margin-bottom: 20px;
 }
 
+.search-field {
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+  }
+}
+
 .sorting-actions {
   text-align: right;
   .sort-by {
