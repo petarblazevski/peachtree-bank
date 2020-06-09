@@ -4,5 +4,11 @@ export class Transaction {
   merchant: string;
   merchantLogo: string;
   transactionDate: number;
-  transactionType: string;
+  transactionType: TransactionType;
+}
+
+export enum TransactionType {
+  OnlineTransfer = 'Online Transfer',
+  CardPayment = 'Card Payment',
+  Transaction = 'Transaction',
 }
