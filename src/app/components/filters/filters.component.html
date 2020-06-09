@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="search-field col-6">
+<div class="row align-items-center">
+  <div class="search-field col-12 col-md-6">
     <form [formGroup]="form" novalidate>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search by typing" formControlName="query">
@@ -9,7 +9,7 @@
       </div>
     </form>
   </div>
-  <div class="sorting-actions col-6">
+  <div class="sorting-actions col-12 col-md-6 mt-3 mt-md-0">
     <span class="sort-by">Sort by</span>
     <div class="btn-group" role="group" aria-label="Basic example">
       <button type="button" class="btn" (click)="sortBy('transactionDate')">
