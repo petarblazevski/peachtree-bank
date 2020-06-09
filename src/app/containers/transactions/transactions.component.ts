@@ -17,13 +17,11 @@ export class TransactionsComponent implements OnInit {
     select(transactionSelectors.selectTransactions)
   );
 
-  query: string;
-
   constructor(private store: Store<IState>) {}
 
   ngOnInit(): void {}
 
-  searchTransactions(query) {
-    this.query = query;
+  filterTransactions(filters) {
+    this.store.dispatch(transactionActions.filterTransactions(filters));
   }
 }

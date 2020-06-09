@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { Transaction } from '../entities/transaction.entity';
 import { NewTransaction } from '../interfaces/new-transaction';
+import { SortOptions } from '../interfaces/sort-options';
 
 export const loadTransactions = createAction(
   '[Transactions] Load transactions',
@@ -25,4 +26,9 @@ export const createTransaction = createAction(
 export const failedTransaction = createAction(
   '[Transactions] Failed transaction',
   props<{ reason: string }>()
+);
+
+export const filterTransactions = createAction(
+  '[Transactions] Filter transactions',
+  props<{ query: string; sortOptions: SortOptions }>()
 );
